@@ -1,0 +1,13 @@
+<h1>Event: <%= @event.name %></h1>
+<p>
+  ID: <%= @event.id %>
+</p>
+<p>
+  Location: <%= @event.location %>
+</p>
+<p>
+  Creator: <%= link_to @event.creator.email, profile_path(@creator.id) %>  
+</p>
+<p>
+  Details: <%= @event.details %>
+</p>

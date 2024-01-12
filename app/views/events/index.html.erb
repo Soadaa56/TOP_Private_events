@@ -10,7 +10,7 @@
 <h1>All Events </h1>
 <% @events.each do |event| %>
   <div class="col-md-4">
-    <h2>Event: <%= event.name %></h6>
+    <h2>Event: <%= link_to event.name, event_path(event.id) %></h6>
     <h3>Creator: <%= link_to event.creator.email, profile_path(event.creator) %></h3>
     <p>Location: <%= event.location %></p>
     <p>Date: <%= event.date %> </p>
