@@ -1,5 +1,6 @@
 <h4> Current date: <%= @time %> </h4>
 <% if user_signed_in? %>
+  <h4>Hello, <%= current_user.email %></h4>
   <%= button_to "Log out", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to "Log In", new_user_session_path %>
@@ -10,7 +11,7 @@
 <% @events.each do |event| %>
   <div class="col-md-4">
     <h2>Event: <%= event.name %></h6>
-    <h3>Creator: <%= event.creator.email %></h3>
+    <h3>Creator: <%= link_to event.creator.email, profile_path(event.creator) %></h3>
     <p>Location: <%= event.location %></p>
     <p>Date: <%= event.date %> </p>
     <p>Details: <%= event.details %></p>
