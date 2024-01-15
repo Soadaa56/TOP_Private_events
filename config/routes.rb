@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'attendances/new'
+  get 'attendances/create'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
@@ -11,4 +13,7 @@ Rails.application.routes.draw do
   resources :events
   get 'users', to: "users#index"
   get 'profile/:id', to: "users#show", as: 'profile'
+  resources :events do
+    resources :attendances, only: [:new, :create]
+  end
 end

@@ -19,6 +19,8 @@ def create
   @event = current_user.created_events.build(event_params)
 
   if @event.save
+    Attendance.create(attendee: current_user, attended_event: @event)
+
     redirect_to @event, notice: "Event created successfully"
   else
     render :new
