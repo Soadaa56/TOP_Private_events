@@ -1,25 +1,23 @@
-<%= form_with model: @event do |f| %>
+<%= form_with model: @event, url: events_path, method: :post do |f| %>
   <div class="div">
-    <%= f.label :name, "Event name" %>
+    <%= f.label :name, "Event name:" %>
     <%= f.text_field :name %>
   </div>
   <div>
-    <%= f.label :location, "Event location" %>
+    <%= f.label :location, "Event location:" %>
     <%= f.text_field :location %>
   </div>
   <div>
-    <%= f.label :date, "Event date" %>
+    <%= f.label :date, "Event date:" %>
     <%= f.date_field :date %>
   </div>
   <div>
-    <%= f.label :time, "Event time" %>
-    <%= f.time_field, :time %>
+    <%= f.label :time, "Event time:" %>
+    <%= f.time_field :time %>
   </div>
   <div>
-    <%= f.label :details, "Details about your event" %>
+    <%= f.label :details, "Details about your event:" %>
     <%= f.text_area :details %>
   </div>
-
-  <%# f. %>
   <%= f.submit %>
 <% end %>
