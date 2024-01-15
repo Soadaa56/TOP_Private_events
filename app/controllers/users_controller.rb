@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @events = Event.where(creator: @user)
   end
 
   protected

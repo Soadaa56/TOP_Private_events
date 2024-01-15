@@ -1,7 +1,8 @@
-<h1>User: <%= @user.email %></h1>
-<h1>Id: <%= @user.id %> </h4>
+<h1>User Profile: <%= @user.email %></h1>
+<h2>User ID: <%= @user.id %> </h4>
 <br><br>
-<% @user.events.each do |event| %>
+<h2>Events created by <%=  @user.email %></h2>
+<% @events.each do |event| %>
   <p>Event: <%= link_to event.name, event_path(event.id) %></p>
   <br>
 <% end %>
