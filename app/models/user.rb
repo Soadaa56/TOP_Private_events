@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :events       
-  # has_many :attendances, foreign_key: 'user_id'
-  # has_many :events, through: :attendances
+  has_many :created_events, class_name: 'Event', foreign_key: 'user_id'       
+  has_many :attendances, foreign_key: 'user_id'
+  has_many :attended_events, through: :attendances, source: :attended_event
 end
