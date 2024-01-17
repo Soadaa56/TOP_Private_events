@@ -13,5 +13,5 @@
 </p>
 <br>
 
-<h1>Want to join this event?</h1>
-<%= link_to "Join Event", new_event_attendance_path(@event), method: :post %>
+<h2>Want to join this event?</h1>
+<%= button_to "Join Event", event_join_path(@event), method: :post %>

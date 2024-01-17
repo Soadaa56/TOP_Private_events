@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get 'users', to: "users#index"
   get 'profile/:id', to: "users#show", as: 'profile'
   resources :events do
-    resources :attendances, only: [:new, :create]
+    post 'join', to: 'attendances#create'
   end
 end
