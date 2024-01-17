@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get 'profile/:id', to: "users#show", as: 'profile'
   resources :events do
     post 'join', to: 'attendances#create'
+    delete 'leave', to: 'attendances#destroy', as: :leave
   end
 end

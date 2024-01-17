@@ -14,4 +14,15 @@
 <br>
 
 <h2>Want to join this event?</h1>
-<%= button_to "Join Event", event_join_path(@event), method: :post %>
+<% if @event.attendees.include?(current_user) %>
+  <p>You are in this event!</p>
+  <p>Want to leave this event?</p>
+  <%= button_to "Leave Event", event_leave_path(@event), method: :delete %>
+<% else %>
+  <%= button_to "Join Event", event_join_path(@event), method: :post %>
+<% end %>
+<br>
+<h2>List of Attendees:</h2>
+<% @event.attendees.each do |attendee| %>
+  <p><%= link_to attendee.email, profile_path(attendee.id) %><p>
+<% end %>

@@ -16,8 +16,11 @@ class AttendancesController < ApplicationController
     end
   end
 
-  def show
-    
+  def destroy
+    @attendance = Attendance.find_by(attendee: current_user, attended_event: @event)
+    @attendance.destroy if @attendance
+
+    redirect_to @event, notice: "Event left."
   end
 
   protected

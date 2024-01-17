@@ -6,3 +6,8 @@
   <p>Event: <%= link_to event.name, event_path(event.id) %></p>
   <br>
 <% end %>
+<br>
+<h2>Events <%= @user.email %> is attending:</h2>
+<% @user.attended_events.each do |event| %>
+  <p><%= link_to event.name, event_path(event.id) %></p>
+<% end %>
